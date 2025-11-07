@@ -1,0 +1,166 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  password      String
+  name          String
+  role          String   @default("STUDENT") // STUDENT, HOD, TPO
+  department    String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Student specific
+  studentProfile StudentProfile?
+  
+  // HOD specific
+  hodProfile     HODProfile?
+
+  // Relations
+  notifications  Notification[]
+}
+
+model StudentProfile {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  enrollmentNo    String   @unique
+  phone           String
+  dateOfBirth     DateTime
+  address         String
+  cgpa            Float?
+  resumeUrl       String?
+  resumeText      String?  // For AI parsing
+  isApproved      Boolean  @default(false)
+  approvedBy      String?  // HOD userId
+  approvedAt      DateTime?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  applications    Application[]
+}
+
+model HODProfile {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  department  String
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Company {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  website     String?
+  logoUrl     String?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  drives     Drive[]
+}
+
+model Drive {
+  id              String      @id @default(cuid())
+  title           String
+  description     String?
+  companyId       String
+  company         Company     @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  
+  role            String
+  location        String?
+  package         String?     // e.g., "10 LPA"
+  eligibility     String?     // e.g., "CGPA > 7.5, No backlogs"
+  requirements    String?     // Job requirements
+  
+  status          String      @default("DRAFT") // DRAFT, ACTIVE, CLOSED, COMPLETED
+  registrationDeadline DateTime?
+  driveDate       DateTime?
+  
+  createdBy       String      // TPO userId
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  rounds          Round[]
+  applications    Application[]
+}
+
+model Round {
+  id              String        @id @default(cuid())
+  driveId         String
+  drive           Drive         @relation(fields: [driveId], references: [id], onDelete: Cascade)
+  
+  name            String        // e.g., "Written Test", "Technical Interview"
+  description     String?
+  roundNumber     Int
+  status          String        @default("PENDING") // PENDING, IN_PROGRESS, COMPLETED
+  scheduledDate   DateTime?
+  
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  results         RoundResult[]
+}
+
+model Application {
+  id              String            @id @default(cuid())
+  studentId       String
+  student         StudentProfile    @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  driveId         String
+  drive           Drive             @relation(fields: [driveId], references: [id], onDelete: Cascade)
+  
+  status          String            @default("PENDING") // PENDING, APPROVED, REJECTED, SELECTED
+  appliedAt       DateTime          @default(now())
+  
+  offerLetterUrl  String?
+  offerLetterText String?
+  
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  roundResults    RoundResult[]
+}
+
+model RoundResult {
+  id              String        @id @default(cuid())
+  applicationId   String
+  application     Application   @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  roundId         String
+  round           Round         @relation(fields: [roundId], references: [id], onDelete: Cascade)
+  
+  status          String        // "PASSED", "FAILED", "PENDING"
+  score           Float?
+  feedback        String?
+  
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model Notification {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  title       String
+  message     String
+  type        String   // "INFO", "SUCCESS", "WARNING", "ERROR"
+  isRead      Boolean  @default(false)
+  
+  createdAt   DateTime @default(now())
+}
+
