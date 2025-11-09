@@ -81,10 +81,10 @@ export default function ResumeFilterPage() {
   return (
     <DashboardLayout>
       <div className="px-4 py-6 sm:px-0">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Resume Filter Tool</h1>
+        <h1 className="text-3xl font-bold text-gray-400 mb-6">Resume Filter Tool</h1>
 
-        <div className="bg-white shadow rounded-lg p-6 mb-6">
-          <h2 className="text-xl font-semibold mb-4">Filter Criteria</h2>
+        <div className="bg-white glass-card shadow rounded-lg p-6 mb-6">
+          <h2 className="text-xl font-semibold text-gray-400 mb-4">Filter Criteria</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -134,8 +134,8 @@ export default function ResumeFilterPage() {
           </button>
         </div>
 
-        <div className="bg-white shadow rounded-lg overflow-hidden">
-          <div className="px-6 py-4 border-b border-gray-200">
+        <div className="bg-white glass-card shadow rounded-lg overflow-hidden">
+          <div className="px-6 py-4 border-b border-gray-500">
             <h2 className="text-xl font-semibold">
               Applications ({filteredApplications.length})
             </h2>

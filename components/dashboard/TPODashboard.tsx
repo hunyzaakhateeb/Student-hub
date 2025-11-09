@@ -29,7 +29,7 @@ export default async function TPODashboard() {
     <DashboardLayout>
       <div className="px-4 py-6 sm:px-0">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">TPO Dashboard</h1>
+          <h1 className="text-3xl font-bold text-gray-400">TPO Dashboard</h1>
           <p className="text-gray-600 mt-2">Manage placement drives and recruitment</p>
         </div>
 
@@ -39,7 +39,7 @@ export default async function TPODashboard() {
             return (
               <div
                 key={stat.label}
-                className="bg-white overflow-hidden shadow rounded-lg"
+                className="bg-white glass-card overflow-hidden shadow rounded-lg"
               >
                 <div className="p-5">
                   <div className="flex items-center">
@@ -48,10 +48,10 @@ export default async function TPODashboard() {
                     </div>
                     <div className="ml-5 w-0 flex-1">
                       <dl>
-                        <dt className="text-sm font-medium text-gray-500 truncate">
+                        <dt className="text-sm font-medium text-gray-300 truncate">
                           {stat.label}
                         </dt>
-                        <dd className="text-lg font-medium text-gray-900">{stat.value}</dd>
+                        <dd className="text-lg font-medium text-gray-600">{stat.value}</dd>
                       </dl>
                     </div>
                   </div>
@@ -62,7 +62,7 @@ export default async function TPODashboard() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <div className="bg-white shadow rounded-lg p-6">
+          <div className="bg-white glass-card shadow rounded-lg p-6">
             <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
             <div className="space-y-3">
               <Link
@@ -92,7 +92,7 @@ export default async function TPODashboard() {
             </div>
           </div>
 
-          <div className="bg-white shadow rounded-lg p-6">
+          <div className="bg-white glass-card shadow rounded-lg p-6">
             <h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
             <p className="text-gray-500">Activity feed will appear here</p>
           </div>

@@ -41,12 +41,12 @@ export default function ReportsPage() {
   return (
     <DashboardLayout>
       <div className="px-4 py-6 sm:px-0">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Reports</h1>
+        <h1 className="text-3xl font-bold text-gray-400 mb-6">Reports</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {user.role === 'HOD' && (
-            <div className="bg-white shadow rounded-lg p-6">
-              <h2 className="text-xl font-semibold mb-4">Department Report</h2>
+            <div className="bg-white glass-card shadow rounded-lg p-6">
+              <h2 className="text-xl font-semibold text-gray-400 mb-4">Department Report</h2>
               <p className="text-gray-600 text-sm mb-4">
                 Generate a report of all students in your department
               </p>
@@ -73,8 +73,8 @@ export default function ReportsPage() {
 
           {user.role === 'TPO' && (
             <>
-              <div className="bg-white shadow rounded-lg p-6">
-                <h2 className="text-xl font-semibold mb-4">Offer-wise Report</h2>
+              <div className="bg-white glass-card shadow rounded-lg p-6">
+                <h2 className="text-xl font-semibold text-gray-400 mb-4">Offer-wise Report</h2>
                 <p className="text-gray-600 text-sm mb-4">
                   Generate a report of all selected students with offers
                 </p>
@@ -98,8 +98,8 @@ export default function ReportsPage() {
                 </div>
               </div>
 
-              <div className="bg-white shadow rounded-lg p-6">
-                <h2 className="text-xl font-semibold mb-4">Student-wise Report</h2>
+              <div className="bg-white glass-card shadow rounded-lg p-6">
+                <h2 className="text-xl font-semibold text-gray-00 mb-4">Student-wise Report</h2>
                 <p className="text-gray-600 text-sm mb-4">
                   Generate a report of all students and their applications
                 </p>

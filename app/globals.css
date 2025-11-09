@@ -24,6 +24,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+      color: rgb(var(--foreground-rgb));
+  background: url('/bg.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @layer utilities {
@@ -32,3 +36,10 @@ body {
   }
 }
 
+.glass-card {
+    backdrop-filter: blur(5px) saturate(190%);
+    -webkit-backdrop-filter: blur(10px) saturate(190%);
+    background-color: rgba(45, 45, 45, 0.5);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}

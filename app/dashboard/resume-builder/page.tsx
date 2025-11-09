@@ -115,7 +115,7 @@ export default function ResumeBuilderPage() {
     <DashboardLayout>
       <div className="px-4 py-6 sm:px-0">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold text-gray-900">Resume Builder</h1>
+          <h1 className="text-3xl font-bold text-gray-400">Resume Builder</h1>
           <div className="flex space-x-3">
             <button
               onClick={handleGetSuggestions}
@@ -161,10 +161,10 @@ export default function ResumeBuilderPage() {
           </div>
         )}
 
-        <div className="bg-white shadow rounded-lg p-6 space-y-6">
+        <div className="bg-white glass-card shadow rounded-lg p-6 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Name *</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Name *</label>
               <input
                 type="text"
                 value={resumeData.name}
@@ -174,7 +174,7 @@ export default function ResumeBuilderPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Email *</label>
               <input
                 type="email"
                 value={resumeData.email}
@@ -184,7 +184,7 @@ export default function ResumeBuilderPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Phone</label>
               <input
                 type="tel"
                 value={resumeData.phone}
@@ -193,7 +193,7 @@ export default function ResumeBuilderPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Address</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Address</label>
               <input
                 type="text"
                 value={resumeData.address}

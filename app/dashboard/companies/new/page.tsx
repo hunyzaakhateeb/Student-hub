@@ -52,9 +52,9 @@ export default function NewCompanyPage() {
   return (
     <DashboardLayout>
       <div className="px-4 py-6 sm:px-0">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Add New Company</h1>
+        <h1 className="text-3xl font-bold text-gray-400 mb-6">Add New Company</h1>
 
-        <form onSubmit={handleSubmit} className="bg-white shadow rounded-lg p-6 space-y-6 max-w-2xl">
+        <form onSubmit={handleSubmit} className="bg-white glass-card shadow rounded-lg p-6 space-y-6 max-w-2xl">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Company Name *

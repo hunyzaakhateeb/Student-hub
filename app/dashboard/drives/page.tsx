@@ -29,7 +29,7 @@ export default async function DrivesPage() {
     <DashboardLayout>
       <div className="px-4 py-6 sm:px-0">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-gray-400">
             {session.role === 'STUDENT' ? 'Active Drives' : 'Placement Drives'}
           </h1>
           {session.role === 'TPO' && (
@@ -44,7 +44,7 @@ export default async function DrivesPage() {
         </div>
 
         {drives.length === 0 ? (
-          <div className="bg-white shadow rounded-lg p-12 text-center">
+          <div className="bg-white glass-card shadow rounded-lg p-12 text-center">
             <p className="text-gray-500">
               {session.role === 'STUDENT' 
                 ? 'No active drives available at the moment.' 

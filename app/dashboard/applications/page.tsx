@@ -30,14 +30,14 @@ export default function ApplicationsPage() {
   return (
     <DashboardLayout>
       <div className="px-4 py-6 sm:px-0">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">
+        <h1 className="text-3xl font-bold text-gray-400 mb-6">
           {user.role === 'STUDENT' ? 'My Applications' : 'Applications'}
         </h1>
 
         {loading ? (
           <div className="text-center py-12">Loading...</div>
         ) : applications.length === 0 ? (
-          <div className="bg-white shadow rounded-lg p-12 text-center">
+          <div className="bg-white glass-card shadow rounded-lg p-12 text-center">
             <p className="text-gray-500">No applications found</p>
             {user.role === 'STUDENT' && (
               <Link

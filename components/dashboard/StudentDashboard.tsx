@@ -39,7 +39,7 @@ export default async function StudentDashboard() {
     <DashboardLayout>
       <div className="px-4 py-6 sm:px-0">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Student Dashboard</h1>
+          <h1 className="text-3xl font-bold text-gray-400">Student Dashboard</h1>
           <p className="text-gray-600 mt-2">Welcome back, {session.name}!</p>
         </div>
 
@@ -57,7 +57,7 @@ export default async function StudentDashboard() {
             return (
               <div
                 key={stat.label}
-                className="bg-white overflow-hidden shadow rounded-lg"
+                className="bg-white glass-card overflow-hidden shadow rounded-lg"
               >
                 <div className="p-5">
                   <div className="flex items-center">
@@ -69,7 +69,7 @@ export default async function StudentDashboard() {
                         <dt className="text-sm font-medium text-gray-500 truncate">
                           {stat.label}
                         </dt>
-                        <dd className="text-lg font-medium text-gray-900">{stat.value}</dd>
+                        <dd className="text-lg font-medium text-gray-400">{stat.value}</dd>
                       </dl>
                     </div>
                   </div>
@@ -80,8 +80,8 @@ export default async function StudentDashboard() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <div className="bg-white shadow rounded-lg p-6">
-            <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
+          <div className="bg-white glass-card shadow rounded-lg p-6">
+            <h2 className="text-xl font-semibold text-gray-400 mb-4">Quick Actions</h2>
             <div className="space-y-3">
               <Link
                 href="/dashboard/profile"
@@ -104,8 +104,8 @@ export default async function StudentDashboard() {
             </div>
           </div>
 
-          <div className="bg-white shadow rounded-lg p-6">
-            <h2 className="text-xl font-semibold mb-4">Recent Applications</h2>
+          <div className="bg-white glass-card shadow rounded-lg p-6">
+            <h2 className="text-xl font-semibold text-gray-400 mb-4">Recent Applications</h2>
             {student.applications.length === 0 ? (
               <p className="text-gray-500">No applications yet</p>
             ) : (
